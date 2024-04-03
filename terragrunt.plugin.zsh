@@ -15,7 +15,10 @@ alias tgi='terragrunt init'
 alias tgo='terragrunt output'
 alias tgp='terragrunt plan'
 alias tgsd='terragrunt state pull > state.json'
-alias tgsu='terragrunt state push state.json && rm state.json'
+alias tgsI='terragrunt import'
+alias tgsl='terragrunt state list'
+alias tgsR='terragrunt state rm'
+alias tgsU='terragrunt state push state.json && rm state.json'
 
 alias tgx='terragrunt run-all'
 alias tgxa='terragrunt run-all apply'
@@ -27,6 +30,10 @@ alias tgxD='terragrunt run-all destroy --terragrunt-non-interactive'
 alias tgxi='terragrunt run-all init'
 alias tgxo='terragrunt run-all output'
 alias tgxp='terragrunt run-all plan'
+
+function tgsRR() {
+  terragrunt state list | grep $1 | parallel -j 1 terragrunt state rm '{}'
+}
 
 function tgXc() {
   (_cdtl && rm -rf **/.terragrunt-cache)
