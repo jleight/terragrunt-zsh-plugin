@@ -28,15 +28,19 @@ A few more convenience aliases are provided:
 | `tgc`   | Clean the `.terragrunt-cache` directory.                |
 | `tgff`  | Format both terragrunt and terraform files. (recursive) |
 | `tgsd`  | Download the terraform state file to `state.json`.      |
-| `tgsu`  | Upload `state.json` as the new state file.              |
+| `tgsl`  | Run `terraform state list`.                             |
 
-Aliases that skip the need for approval or that are destructive are available with an upper-case letter:
+Aliases that modify state without approval are available with an upper-case letter:
 
-| Command | Description                                                                 |
-|---------|-----------------------------------------------------------------------------|
-| `tgA`   | Run `terragrunt apply` with auto-approval.                                  |
-| `tgC`   | Clean the `.terragrunt-cache` directory and the `.terraform.lock.hcl` file. |
-| `tgD`   | Run `terragrunt destroy` with auto-approval.                                |
+| Command | Description                                                                                                     |
+|---------|-----------------------------------------------------------------------------------------------------------------|
+| `tgA`   | Run `terragrunt apply` with auto-approval.                                                                      |
+| `tgC`   | Clean the `.terragrunt-cache` directory and the `.terraform.lock.hcl` file.                                     |
+| `tgD`   | Run `terragrunt destroy` with auto-approval.                                                                    |
+| `tgsI`  | Run `terragrunt import`.                                                                                        |
+| `tgsR`  | Run `terragrunt state rm`.                                                                                      |
+| `tgsRR` | Greps resource identifiers in `terragrunt state list` and runs `terragrunt state rm` for each one that matched. |
+| `tgsU`  | Upload `state.json` as the new state file.                                                                      |
 
 ### Multiple-module Aliases
 
